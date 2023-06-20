@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BerDa Grocery App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<style>
+    .navbar-custom .navbar-brand {
+        margin-left: 40px; 
+        line-height: 50px;
+        font-size: 2rem;
+    }
+
+
+    .left-container {
+          padding: 20px; /* Add padding to the left container */
+    }
+
+    .right-container {
+        background-color: #f1efef; /* Set the background color for the right container */
+        padding: 25px; /* Add padding to the right container */
+    }
+    .sidebar {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        height: 100vh;
+        overflow-y: auto;
+        background: #3786fb;
+        transition: 0.5s;
+        z-index: 999;
+    }
+    .pb-3 {
+        padding-bottom: 1rem !important;
+    }
+    .pe-4 {
+        padding-right: 1.5rem !important;
+    }
+
+    .bg-secondary {
+        background-color: #0d6efd !important;
+    }
+
+    .form-label {
+        margin-bottom: 0.1rem;
+    }
+    
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.40rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1;
+        color: #2c7ef8;
+        background-color: #f3f3f3;
+        background-clip: padding-box;
+        appearance: none;
+        border-radius: 5px;
+        transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    }
+    
+    .btn-primary {
+        color: #2179fd;
+        background-color: #ffffff;
+    }
+
+</style>
+
+<body>
+
+    <nav class="navbar navbar-custom navbar-dark bg-primary">
+        <a class="navbar-brand h1">
+        <img src="bag-check.svg" width="50" height="50" alt="">
+        Grocery List
+    </a>
+    <ul class="navbar-nav">
+    </nav>
+
+
+    <!--Left Container -->
+    <div class="parent-container d-flex">
+        <div class="sidebar pe-4 pb-3 left-container">
+            <div class="row">
+                <div class="col">
+                    <nav id="sidebarMenu">
+                        <div class="position-sticky">
+                            <div>
+                                <ul class="list-group mt-3">
+                                    <li class="list-group-item list-group-item-action ripple">
+                                        <img src = "house.svg"/>
+                                        Home
+                                    </li>
+                                    <li class="list-group-item list-group-item-action ripple active">
+                                        <img src = "journal-text.svg"/>
+                                        List
+                                    </li>
+                                    <li class="list-group-item list-group-item-action ripple">
+                                        <img src = "check-circle-fill.svg"/>
+                                        Completed
+                                        <span class="badge bg-success rounded-pill">13</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Container -->
+        <div class="container right-container">
+            <div class="row">
+                <div class="col-md">
+                    <h3 class="mt-3 mb-4">Your Cart</h3>
+
+                    <div class = "bg-secondary rounded h-40 p-4">
+                        <form id="toDoForm" class="row g-3">
+                            <div class="col-5">
+                                <label for="item" class="form-label">Item:</label>
+                                <input type="text" class="form-control" placeholder="Add Item" id="item" required>
+                            </div>
+                            <div class="col-5">
+                                <label for="quantity" class="form-label">Quantity:</label>
+                                <input type="number" class="form-control" placeholder="Add Quantity" id="quantity" min="1" required>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary mt-4">Add to Cart</button>
+                            </div>
+                        </form>
+                    </div>
+
+            
+                    <table class="table mt-3">
+                        <thead class="table-info">
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="toDoList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+
+</html>
